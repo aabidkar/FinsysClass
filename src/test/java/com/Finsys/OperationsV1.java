@@ -209,14 +209,14 @@ public class OperationsV1 {
 		op.DropDownSelectByOptionValue("//select[@id=\"citylist\"]", "PUNE");
 		op.LinkClick("//span[@class='l-btn-icon icon-save']");
 		op.LinkClick("//span[@class='l-btn-icon pagination-load']");
-		String val = op.ObjectGetAttributeValue("//tr[@id=\"datagrid-row-r1-2-0\"]/td[@field=\"name\"]", "innerText");
-	
-		if(val.equalsIgnoreCase(company)) {
-			System.out.println(val + " Pass.");
+		String val = op.ObjectGetAttributeValue("//tr[@id='datagrid-row-r1-2-0']/td[@field='name']", "innerText");
+		String temp=val.replaceAll("\\‌​r|\\n", "");
+		if(temp.equalsIgnoreCase(company)) {
+			System.out.println(temp + " Company is added [PASS].");
 		}
 		else {
 
-			System.out.println("Fail "+ val);
+			System.out.println("Invalid Company  "+ val+"[FAIL]");
 		}
 	}
 	

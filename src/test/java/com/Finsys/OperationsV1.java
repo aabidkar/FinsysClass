@@ -240,7 +240,8 @@ public class OperationsV1 {
 
 	private void ValidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html");
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); //for Office User.
+		//op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
 		op.LinkClick("//span[.='Login']");
@@ -255,7 +256,8 @@ public class OperationsV1 {
 
 	private void InvalidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ff", "http://localhost:90/finsys/login.html");
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); //for Office User.
+		//op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
@@ -299,6 +301,10 @@ public class OperationsV1 {
 			System.out.println("Invalid Company  " + val + "[FAIL]");
 		}
 	}
+	
+	private void tearDown(){
+		driver.close();
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -306,6 +312,7 @@ public class OperationsV1 {
 		op.ValidLogin();
 		// op.InvalidLogin();
 		op.CreateCompany();
+		op.tearDown();
 	}
 
 }

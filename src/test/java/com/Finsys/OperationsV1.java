@@ -26,16 +26,17 @@ public class OperationsV1 {
 
 	}
 
-	public void LaunchApplication(String BrowserName, String URL, String WebDriverExePath) {
+	public void LaunchApplication(String BrowserName, String URL) {
 		if (BrowserName.equalsIgnoreCase("ff")) {
+			System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 		if (BrowserName.equalsIgnoreCase("ch")) {
-			System.setProperty("webdriver.chrome.driver", WebDriverExePath);
+			System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		if (BrowserName.equalsIgnoreCase("ie")) {
-			System.setProperty("webdriver.ie.driver", WebDriverExePath);
+			System.setProperty("webdriver.ie.driver", "drivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 		}
 		wait = new WebDriverWait(driver, timeout);
@@ -100,49 +101,50 @@ public class OperationsV1 {
 	// ###############TextBox######################
 	public void TextBoxSetValue(String xPath, String Value) throws InterruptedException {
 		try {
-		WebElement obj = IsObjectExists(xPath);
-		obj.clear();
-		Thread.sleep(1000);
-		obj.sendKeys(Value);
-		String message="Step Number:"+(counter++)+" Able to Set Value in TextBox using xPath="+xPath;
-		System.out.println(message);
-	}
-		catch(Exception ex) {
-			String message="Step Number:"+(counter++)+" Failed to Set Value in TextBox using xPath="+ xPath + "/n Exception;" +ex.getLocalizedMessage();
+			WebElement obj = IsObjectExists(xPath);
+			obj.clear();
+			Thread.sleep(1000);
+			obj.sendKeys(Value);
+			String message = "Step Number:" + (counter++) + " Able to Set Value in TextBox using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Set Value in TextBox using xPath=" + xPath
+					+ "/n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
 	}
 
 	public void TextBoxAppendValue(String xPath, String Value) {
 		try {
-		WebElement obj = IsObjectExists(xPath);
-		obj.sendKeys(Value);
-		String message="Step Number:"+(counter++)+" Able to Append Value in TexBox using xPath="+xPath;
-		System.out.println(message);
-	}
-		catch(Exception ex) {
-			String message="Step Number:"+(counter++)+" Failed to Append Value in TexBox using xPath="+xPath+"\n Exception;"+ex.getLocalizedMessage();
+			WebElement obj = IsObjectExists(xPath);
+			obj.sendKeys(Value);
+			String message = "Step Number:" + (counter++) + " Able to Append Value in TexBox using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Append Value in TexBox using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
-			
+
 		}
 	}
 
 	// ###############Link######################
 	public void LinkClick(String xPath) {
 		try {
-		WebElement obj = IsObjectExists(xPath);
-		obj.click();
-		String message="Step Number:"+(counter++)+" Able to Click on Link using xPath="+xPath;
-		System.out.println(message);
-		}
-		catch(Exception ex) {
-			String message="Step Number:"+(counter++)+" Failed to Click on Link using xPath="+xPath+"\n Exception;"+ex.getLocalizedMessage();
+			WebElement obj = IsObjectExists(xPath);
+			obj.click();
+			String message = "Step Number:" + (counter++) + " Able to Click on Link using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Click on Link using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
 	}
 
 	// #################Table#####################
 	public int TableGetRowCount(String xPath) {
+
 		WebElement obj = IsObjectExists(xPath);
 		return obj.findElements(By.tagName("tr")).size();
 	}
@@ -174,24 +176,53 @@ public class OperationsV1 {
 
 	// ######################Drop Down#################
 	public void DropDownSelectByVisibleText(String xPath, String Value) {
-		WebElement obj = IsObjectExists(xPath);
-		Select sel = new Select(obj);
-		sel.selectByVisibleText(Value);
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Select sel = new Select(obj);
+			sel.selectByVisibleText(Value);
+			String message = "Step Number:" + (counter++) + " Able to Select Visible Text from Drop Down using xPath="
+					+ xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Select Visible Text from Drop Down using xPath="
+					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public void DropDownSelectByIndex(String xPath, int Index) {
-		WebElement obj = IsObjectExists(xPath);
-		Select sel = new Select(obj);
-		sel.selectByIndex(Index);
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Select sel = new Select(obj);
+			sel.selectByIndex(Index);
+			String message = "Step Number:" + (counter++) + " Able to Select by Index Text from Drop Down using xPath="
+					+ xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Select by Index from Drop Down using xPath="
+					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public void DropDownSelectByOptionValue(String xPath, String OptionValue) {
-		WebElement obj = IsObjectExists(xPath);
-		Select sel = new Select(obj);
-		sel.selectByValue(OptionValue);
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Select sel = new Select(obj);
+			sel.selectByValue(OptionValue);
+			String message = "Step Number:" + (counter++)
+					+ " Able to Select by Option Value from Drop Down using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++)
+					+ " Failed to Select by Option Value from Drop Down using xPath=" + xPath + "\n Exception;"
+					+ ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public String DropDownGetSelectedValue(String xPath) {
+
 		WebElement obj = IsObjectExists(xPath);
 		Select sel = new Select(obj);
 		return sel.getFirstSelectedOption().getText();
@@ -209,7 +240,7 @@ public class OperationsV1 {
 
 	private void ValidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ch", "http://localhost/finsys/login.html", "drivers\\chromedriver.exe");
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html");
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
 		op.LinkClick("//span[.='Login']");
@@ -224,11 +255,12 @@ public class OperationsV1 {
 
 	private void InvalidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ff", "http://localhost/finsys/login.html", "drivers\\chromedriver.exe");
+		op.LaunchApplication("ff", "http://localhost:90/finsys/login.html");
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
-		// String val=op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText");
+		// String val=op.ObjectGetAttributeValue("//a[.='LOGOUT']",
+		// "innerText");
 		String val = op.ObjectGetAttributeValue("//div[@id='error']", "innerText");
 		if (val.equalsIgnoreCase("Please Enter Valid Username or Password!!!")) {
 

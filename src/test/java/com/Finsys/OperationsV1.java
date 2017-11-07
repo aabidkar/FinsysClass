@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,21 +20,22 @@ public class OperationsV1 {
 	public static WebDriver driver = null;
 	public static WebDriverWait wait = null;
 	private int timeout = 10;
+	private int counter = 1;
 
 	public OperationsV1() {
 
 	}
 
-	public void LaunchApplication(String BrowserName, String URL,String WebDriverExePath) {
+	public void LaunchApplication(String BrowserName, String URL, String WebDriverExePath) {
 		if (BrowserName.equalsIgnoreCase("ff")) {
 			driver = new FirefoxDriver();
 		}
 		if (BrowserName.equalsIgnoreCase("ch")) {
-		System.setProperty("webdriver.chrome.driver",WebDriverExePath);
+			System.setProperty("webdriver.chrome.driver", WebDriverExePath);
 			driver = new ChromeDriver();
 		}
 		if (BrowserName.equalsIgnoreCase("ie")) {
-			System.setProperty("webdriver.ie.driver",WebDriverExePath);
+			System.setProperty("webdriver.ie.driver", WebDriverExePath);
 			driver = new InternetExplorerDriver();
 		}
 		wait = new WebDriverWait(driver, timeout);
@@ -54,42 +56,89 @@ public class OperationsV1 {
 
 	// ###############Button######################
 	public void ButtonClick(String xPath) {
-		WebElement obj = IsObjectExists(xPath);
-		obj.click();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			obj.click();
+			String message = "Step Number:" + (counter++) + " Able to Click on Buttoon using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Click on Button using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 
 	}
 
 	// ###############Button######################
 	public void ButtonDoubleClick(String xPath) {
-		WebElement obj = IsObjectExists(xPath);
-		Actions act = new Actions(driver);
-		act.doubleClick(obj).build().perform();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Actions act = new Actions(driver);
+			act.doubleClick(obj).build().perform();
+			String message = "Step Number:" + (counter++) + " Able to do Double Click on Buttoon using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Double Click on Buttoon using xPath=" + xPath
+					+ "\n Exception; " + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public void ButtonRightClick(String xPath) {
-		WebElement obj = IsObjectExists(xPath);
-		Actions act = new Actions(driver);
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Actions act = new Actions(driver);
+			String message = "Step Number:" + (counter++) + " Able to do Right Click on Buttoon using xPath=" + xPath;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Right Click on Buttoon using xPath=" + xPath
+					+ "\n Exception" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	// ###############TextBox######################
 	public void TextBoxSetValue(String xPath, String Value) throws InterruptedException {
+		try {
 		WebElement obj = IsObjectExists(xPath);
 		obj.clear();
 		Thread.sleep(1000);
-
 		obj.sendKeys(Value);
+		String message="Step Number:"+(counter++)+" Able to Set Value in TextBox using xPath="+xPath;
+		System.out.println(message);
+	}
+		catch(Exception ex) {
+			String message="Step Number:"+(counter++)+" Failed to Set Value in TextBox using xPath="+ xPath + "/n Exception;" +ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public void TextBoxAppendValue(String xPath, String Value) {
+		try {
 		WebElement obj = IsObjectExists(xPath);
 		obj.sendKeys(Value);
+		String message="Step Number:"+(counter++)+" Able to Append Value in TexBox using xPath="+xPath;
+		System.out.println(message);
+	}
+		catch(Exception ex) {
+			String message="Step Number:"+(counter++)+" Failed to Append Value in TexBox using xPath="+xPath+"\n Exception;"+ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+			
+		}
 	}
 
 	// ###############Link######################
 	public void LinkClick(String xPath) {
+		try {
 		WebElement obj = IsObjectExists(xPath);
 		obj.click();
-
+		String message="Step Number:"+(counter++)+" Able to Click on Link using xPath="+xPath;
+		System.out.println(message);
+		}
+		catch(Exception ex) {
+			String message="Step Number:"+(counter++)+" Failed to Click on Link using xPath="+xPath+"\n Exception;"+ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	// #################Table#####################
@@ -167,15 +216,15 @@ public class OperationsV1 {
 		String val = op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText");
 		if (val.equalsIgnoreCase("LOGOUT")) {
 
-			System.out.println("Test Case 1 is passed");
+			System.out.println("User is Log-in Successfully. [PASS]");
 		} else {
-			System.out.println("Test Case 2 is Failed");
+			System.out.println("Test Case 2 is Failed. [FAIL]");
 		}
 	}
 
 	private void InvalidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ff", "http://localhost/finsys/login.html","drivers\\chromedriver.exe" );
+		op.LaunchApplication("ff", "http://localhost/finsys/login.html", "drivers\\chromedriver.exe");
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
@@ -183,9 +232,9 @@ public class OperationsV1 {
 		String val = op.ObjectGetAttributeValue("//div[@id='error']", "innerText");
 		if (val.equalsIgnoreCase("Please Enter Valid Username or Password!!!")) {
 
-			System.out.println("Test Case 2 is passed, Invalid Username & Invalid Password");
+			System.out.println("Test Case 2 is passed, Invalid Username & Invalid Password. [PASS]");
 		} else {
-			System.out.println("Test Case 2 is Failed");
+			System.out.println("Test Case 2 is Failed. [FAIL]");
 		}
 	}
 
@@ -194,7 +243,7 @@ public class OperationsV1 {
 		op.LinkClick("//a[@title='Manage Company']");
 		op.FrameSwitchByName("actionid");
 		op.LinkClick("//a[1]/span[@class=\"l-btn-left l-btn-icon-left\"]");
-		String company="finsys";
+		String company = "finsys";
 		op.TextBoxSetValue("//input[@name=\"name\"]", company);
 		op.ButtonClick("//select[@id='companytype']");
 		op.DropDownSelectByIndex("//select[@id='companytype']", 2);
@@ -210,22 +259,20 @@ public class OperationsV1 {
 		op.LinkClick("//span[@class='l-btn-icon icon-save']");
 		op.LinkClick("//span[@class='l-btn-icon pagination-load']");
 		String val = op.ObjectGetAttributeValue("//tr[@id='datagrid-row-r1-2-0']/td[@field='name']", "innerText");
-		String temp=val.replaceAll("\\‌​r|\\n", "");
-		if(temp.equalsIgnoreCase(company)) {
+		String temp = val.replaceAll("\\‌​r|\\n", "");
+		if (temp.equalsIgnoreCase(company)) {
 			System.out.println(temp + " Company is added [PASS].");
-		}
-		else {
+		} else {
 
-			System.out.println("Invalid Company  "+ val+"[FAIL]");
+			System.out.println("Invalid Company  " + val + "[FAIL]");
 		}
 	}
-	
 
 	public static void main(String[] args) throws InterruptedException {
 
 		OperationsV1 op = new OperationsV1();
 		op.ValidLogin();
-		//op.InvalidLogin();
+		// op.InvalidLogin();
 		op.CreateCompany();
 	}
 

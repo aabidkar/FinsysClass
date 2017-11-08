@@ -144,34 +144,83 @@ public class OperationsV1 {
 
 	// #################Table#####################
 	public int TableGetRowCount(String xPath) {
-
-		WebElement obj = IsObjectExists(xPath);
-		return obj.findElements(By.tagName("tr")).size();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			String message = "Step Number:" + (counter++) + " Able to get Row Count from Table using xPath=" + xPath;
+			System.out.println(message);
+			return obj.findElements(By.tagName("tr")).size();
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Row Count from Table using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public int TableGetColumnCount(String xPath, int RowNumber) {
-		WebElement obj = IsObjectExists(xPath);
-		return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).size();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			String message = "Step Number:" + (counter++) + " Able to get Column Count from Table using xPath=" + xPath;
+			System.out.println(message);
+			return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).size();
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Column Count from Table using xPath="
+					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
+
 	}
 
 	public String TableGetCellValue(String xPath, int RowNumber, int ColumnNumber) {
-		WebElement obj = IsObjectExists(xPath);
-		return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).get(ColumnNumber)
-				.getText();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			String message = "Step Number:" + (counter++) + " Able to get Cell Value from Table using xPath=" + xPath;
+			System.out.println(message);
+			return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).get(ColumnNumber)
+					.getText();
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Cell Value from Table using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	// ######################Frame#################
 	public WebDriver FrameSwitchByIndex(int Index) {
-		return driver.switchTo().frame(Index);
+		try {
+			String message = "Step Number:" + (counter++) + " Able to Switch Frame by Index using Index=" + Index;
+			System.out.println(message);
+			return driver.switchTo().frame(Index);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Switch Frame by Index using Index=" + Index
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public WebDriver FrameSwitchByXPath(String xPath) {
-		WebElement obj = driver.findElement(By.xpath(xPath));
-		return driver.switchTo().frame(obj);
+		try {
+			WebElement obj = driver.findElement(By.xpath(xPath));
+			String message = "Step Number:" + (counter++) + " Able to get Swith Frame by Xpath using xPath=" + xPath;
+			System.out.println(message);
+			return driver.switchTo().frame(obj);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Swith Frame by Xpath using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public WebDriver FrameSwitchByName(String NameOfTheFrame) {
-		return driver.switchTo().frame(NameOfTheFrame);
+		try {
+			String message = "Step Number:" + (counter++) + " Able to get Swith Frame by Name using FrameName="
+					+ NameOfTheFrame;
+			System.out.println(message);
+			return driver.switchTo().frame(NameOfTheFrame);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Swith Frame by Name using FrameName="
+					+ NameOfTheFrame + "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	// ######################Drop Down#################
@@ -222,53 +271,70 @@ public class OperationsV1 {
 	}
 
 	public String DropDownGetSelectedValue(String xPath) {
-
-		WebElement obj = IsObjectExists(xPath);
-		Select sel = new Select(obj);
-		return sel.getFirstSelectedOption().getText();
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Select sel = new Select(obj);
+			String message = "Step Number:" + (counter++) + " Able to Get Selected Value from Drop Down using xPath="
+					+ xPath;
+			System.out.println(message);
+			return sel.getFirstSelectedOption().getText();
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Get Selected Value from Drop Down using xPath="
+					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public ArrayList<String> DropDownGetAllSelectedValue(String xPath) {
-		WebElement obj = IsObjectExists(xPath);
-		Select sel = new Select(obj);
-		ArrayList<String> allSelectedValue = new ArrayList<String>();
-		for (WebElement ele : sel.getAllSelectedOptions()) {
-			allSelectedValue.add(ele.getText());
+		try {
+			WebElement obj = IsObjectExists(xPath);
+			Select sel = new Select(obj);
+			ArrayList<String> allSelectedValue = new ArrayList<String>();
+			for (WebElement ele : sel.getAllSelectedOptions()) {
+				allSelectedValue.add(ele.getText());
+			}
+			String message = "Step Number:" + (counter++)
+					+ " Able to Get All Selected Value from Drop Down using xPath=" + xPath;
+			System.out.println(message);
+			return allSelectedValue;
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++)
+					+ " Failed to Get All Selected Value from Drop Down using xPath=" + xPath + "\n Exception;"
+					+ ex.getLocalizedMessage();
+			throw new WebDriverException(message);
 		}
-		return allSelectedValue;
 	}
 
 	private void ValidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); //for Office User.
-		//op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home User.
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
+		// op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home
+		// User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
 		op.LinkClick("//span[.='Login']");
 		String val = op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText");
 		if (val.equalsIgnoreCase("LOGOUT")) {
-
 			System.out.println("User is Log-in Successfully. [PASS]");
 		} else {
-			System.out.println("Test Case 2 is Failed. [FAIL]");
+			System.out.println("User Log-in is Failed. [FAIL]");
 		}
 	}
 
 	private void InvalidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); //for Office User.
-		//op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home User.
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
+		// op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home
+		// User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
-		// String val=op.ObjectGetAttributeValue("//a[.='LOGOUT']",
-		// "innerText");
 		String val = op.ObjectGetAttributeValue("//div[@id='error']", "innerText");
 		if (val.equalsIgnoreCase("Please Enter Valid Username or Password!!!")) {
 
-			System.out.println("Test Case 2 is passed, Invalid Username & Invalid Password. [PASS]");
+			System.out.println("User is log-in With Invalid Username & Invalid Password. [PASS]");
 		} else {
-			System.out.println("Test Case 2 is Failed. [FAIL]");
+			System.out.println("User is able to Log-in successfully. [FAIL]");
 		}
 	}
 
@@ -301,8 +367,8 @@ public class OperationsV1 {
 			System.out.println("Invalid Company  " + val + "[FAIL]");
 		}
 	}
-	
-	private void tearDown(){
+
+	private void tearDown() {
 		driver.close();
 	}
 

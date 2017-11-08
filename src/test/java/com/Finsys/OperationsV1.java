@@ -27,6 +27,7 @@ public class OperationsV1 {
 	}
 
 	public void LaunchApplication(String BrowserName, String URL) {
+		try {
 		if (BrowserName.equalsIgnoreCase("ff")) {
 			System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
@@ -43,6 +44,13 @@ public class OperationsV1 {
 		driver.get(URL);
 		driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		String message = "Step Number:" + (counter++) + " Able to Launch Browser";
+		System.out.println(message);
+		}
+		catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" +  "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	public WebElement IsObjectExists(String xPath) {
@@ -51,8 +59,17 @@ public class OperationsV1 {
 	}
 
 	public String ObjectGetAttributeValue(String xPath, String AttributeName) {
+		try {
 		WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
+		String message = "Step Number:" + (counter++) + " Able to get Attribute Value of Object using xPath=" + xPath;
+		System.out.println(message);
 		return obj.getAttribute(AttributeName);
+		}
+		catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Attribute Value of Object using xPath=" + xPath
+					+ "\n Exception;" + ex.getLocalizedMessage();
+			throw new WebDriverException(message);
+		}
 	}
 
 	// ###############Button######################

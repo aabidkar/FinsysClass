@@ -44,11 +44,11 @@ public class OperationsV1 {
 		driver.get(URL);
 		driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		String message = "Step Number:" + (counter++) + " Able to Launch Browser";
+		String message = "Step Number:" + (counter++) + " Able to Launch Browser" + BrowserName;
 		System.out.println(message);
 		}
 		catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" +  "\n Exception;" + ex.getLocalizedMessage();
+			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" + BrowserName +  "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
 	}
@@ -324,9 +324,8 @@ public class OperationsV1 {
 
 	private void ValidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
-		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
-		// op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home
-		// User.
+		//op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
+		op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
 		op.LinkClick("//span[.='Login']");
@@ -341,14 +340,12 @@ public class OperationsV1 {
 	private void InvalidLogin() throws InterruptedException {
 		OperationsV1 op = new OperationsV1();
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
-		// op.LaunchApplication("ch", "http://localhost:/finsys/login.html"); //for Home
-		// User.
+		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
 		String val = op.ObjectGetAttributeValue("//div[@id='error']", "innerText");
 		if (val.equalsIgnoreCase("Please Enter Valid Username or Password!!!")) {
-
 			System.out.println("User is log-in With Invalid Username & Invalid Password. [PASS]");
 		} else {
 			System.out.println("User is able to Log-in successfully. [FAIL]");
@@ -380,7 +377,6 @@ public class OperationsV1 {
 		if (temp.equalsIgnoreCase(company)) {
 			System.out.println(temp + " Company is added [PASS].");
 		} else {
-
 			System.out.println("Invalid Company  " + val + "[FAIL]");
 		}
 	}

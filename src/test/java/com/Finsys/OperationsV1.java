@@ -217,11 +217,11 @@ public class OperationsV1 {
 	public WebDriver FrameSwitchByXPath(String xPath) {
 		try {
 			WebElement obj = driver.findElement(By.xpath(xPath));
-			String message = "Step Number:" + (counter++) + " Able to get Swith Frame by Xpath using xPath=" + xPath;
+			String message = "Step Number:" + (counter++) + " Able to get Switch Frame by Xpath using xPath=" + xPath;
 			System.out.println(message);
 			return driver.switchTo().frame(obj);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Swith Frame by Xpath using xPath=" + xPath
+			String message = "Step Number:" + (counter++) + " Failed to get Switch Frame by Xpath using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
@@ -229,12 +229,12 @@ public class OperationsV1 {
 
 	public WebDriver FrameSwitchByName(String NameOfTheFrame) {
 		try {
-			String message = "Step Number:" + (counter++) + " Able to get Swith Frame by Name using FrameName="
+			String message = "Step Number:" + (counter++) + " Able to get Switch Frame by Name using FrameName="
 					+ NameOfTheFrame;
 			System.out.println(message);
 			return driver.switchTo().frame(NameOfTheFrame);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Swith Frame by Name using FrameName="
+			String message = "Step Number:" + (counter++) + " Failed to get Switch Frame by Name using FrameName="
 					+ NameOfTheFrame + "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}

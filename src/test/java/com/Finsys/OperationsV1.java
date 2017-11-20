@@ -2,7 +2,7 @@ package com.Finsys;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
+import org.ejagruti.generic.TextOperations;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -21,34 +21,48 @@ public class OperationsV1 {
 	public static WebDriverWait wait = null;
 	private int timeout = 10;
 	private int counter = 1;
+	private boolean isLogEnabled = false;
+	private String LogFolderPath;
+	private String LogFilePath;
+	public static OperationsV1 op = null;
 
 	public OperationsV1() {
 
 	}
 
+	public OperationsV1(boolean isLogEnabled, String LogFolderPath) {
+		this.isLogEnabled = isLogEnabled;
+		this.LogFolderPath = LogFolderPath;
+		if (isLogEnabled) {
+			this.LogFilePath = LogFolderPath + "\\LOG-" + TextOperations.getDateTime("ddMMyyyyHHmmSSS") + ".txt";
+			TextOperations.CreateTextFile(LogFilePath);
+		}
+
+	}
+
 	public void LaunchApplication(String BrowserName, String URL) {
 		try {
-		if (BrowserName.equalsIgnoreCase("ff")) {
-			System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");
-			driver = new FirefoxDriver();
-		}
-		if (BrowserName.equalsIgnoreCase("ch")) {
-			System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
-			driver = new ChromeDriver();
-		}
-		if (BrowserName.equalsIgnoreCase("ie")) {
-			System.setProperty("webdriver.ie.driver", "drivers\\IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-		}
-		wait = new WebDriverWait(driver, timeout);
-		driver.get(URL);
-		driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String message = "Step Number:" + (counter++) + " Able to Launch Browser" + BrowserName;
-		System.out.println(message);
-		}
-		catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" + BrowserName +  "\n Exception;" + ex.getLocalizedMessage();
+			if (BrowserName.equalsIgnoreCase("ff")) {
+				System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");
+				driver = new FirefoxDriver();
+			}
+			if (BrowserName.equalsIgnoreCase("ch")) {
+				System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
+				driver = new ChromeDriver();
+			}
+			if (BrowserName.equalsIgnoreCase("ie")) {
+				System.setProperty("webdriver.ie.driver", "drivers\\IEDriverServer.exe");
+				driver = new InternetExplorerDriver();
+			}
+			wait = new WebDriverWait(driver, timeout);
+			driver.get(URL);
+			driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			String message = "Step Number:" + (counter++) + " Able to Launch Browser" + BrowserName;
+			System.out.println(message);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" + BrowserName + "\n Exception;"
+					+ ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
 	}
@@ -60,14 +74,14 @@ public class OperationsV1 {
 
 	public String ObjectGetAttributeValue(String xPath, String AttributeName) {
 		try {
-		WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
-		String message = "Step Number:" + (counter++) + " Able to get Attribute Value of Object using xPath=" + xPath;
-		System.out.println(message);
-		return obj.getAttribute(AttributeName);
-		}
-		catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Attribute Value of Object using xPath=" + xPath
-					+ "\n Exception;" + ex.getLocalizedMessage();
+			WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
+			String message = "Step Number:" + (counter++) + " Able to get Attribute Value of Object using xPath="
+					+ xPath;
+			System.out.println(message);
+			return obj.getAttribute(AttributeName);
+		} catch (Exception ex) {
+			String message = "Step Number:" + (counter++) + " Failed to get Attribute Value of Object using xPath="
+					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
 			throw new WebDriverException(message);
 		}
 	}
@@ -323,9 +337,9 @@ public class OperationsV1 {
 	}
 
 	private void ValidLogin() throws InterruptedException {
-		OperationsV1 op = new OperationsV1();
-		//op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
-		op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home User.
+		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
+		// Office User.
+		op.LaunchApplication("ch", "http://localhost/finsys/login.html"); // for Home User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
 		op.LinkClick("//span[.='Login']");
@@ -338,9 +352,10 @@ public class OperationsV1 {
 	}
 
 	private void InvalidLogin() throws InterruptedException {
-		OperationsV1 op = new OperationsV1();
+
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
-		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home User.
+		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home
+		// User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
 		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rdd");
 		op.LinkClick("//span[.='Login']");
@@ -353,7 +368,7 @@ public class OperationsV1 {
 	}
 
 	private void CreateCompany() throws InterruptedException {
-		OperationsV1 op = new OperationsV1();
+
 		op.LinkClick("//a[@title='Manage Company']");
 		op.FrameSwitchByName("actionid");
 		op.LinkClick("//a[1]/span[@class=\"l-btn-left l-btn-icon-left\"]");
@@ -386,8 +401,7 @@ public class OperationsV1 {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-
-		OperationsV1 op = new OperationsV1();
+		op = new OperationsV1(true, "log");
 		op.ValidLogin();
 		// op.InvalidLogin();
 		op.CreateCompany();

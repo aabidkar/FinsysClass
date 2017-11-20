@@ -58,11 +58,19 @@ public class OperationsV1 {
 			driver.get(URL);
 			driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			String message = "Step Number:" + (counter++) + " Able to Launch Browser" + BrowserName;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Launch Browser " + BrowserName;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Launch Browser" + BrowserName + "\n Exception;"
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Launch Browser " + BrowserName + "\n Exception;"
 					+ ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -75,14 +83,23 @@ public class OperationsV1 {
 	public String ObjectGetAttributeValue(String xPath, String AttributeName) {
 		try {
 			WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
-			String message = "Step Number:" + (counter++) + " Able to get Attribute Value of Object using xPath="
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Attribute Value of Object using xPath="
 					+ xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			return obj.getAttribute(AttributeName);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Attribute Value of Object using xPath="
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Attribute Value of Object using xPath="
 					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			throw new WebDriverException(message);
+			
 		}
 	}
 
@@ -91,11 +108,19 @@ public class OperationsV1 {
 		try {
 			WebElement obj = IsObjectExists(xPath);
 			obj.click();
-			String message = "Step Number:" + (counter++) + " Able to Click on Buttoon using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Click on Button using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Click on Button using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Click on Button using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			throw new WebDriverException(message);
 		}
 
@@ -107,11 +132,19 @@ public class OperationsV1 {
 			WebElement obj = IsObjectExists(xPath);
 			Actions act = new Actions(driver);
 			act.doubleClick(obj).build().perform();
-			String message = "Step Number:" + (counter++) + " Able to do Double Click on Buttoon using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to do Double Click on Button using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Double Click on Buttoon using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Double Click on Button using xPath=" + xPath
 					+ "\n Exception; " + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -120,11 +153,19 @@ public class OperationsV1 {
 		try {
 			WebElement obj = IsObjectExists(xPath);
 			Actions act = new Actions(driver);
-			String message = "Step Number:" + (counter++) + " Able to do Right Click on Buttoon using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to do Right Click on Button using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Right Click on Buttoon using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Right Click on Button using xPath=" + xPath
 					+ "\n Exception" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+				
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -136,11 +177,18 @@ public class OperationsV1 {
 			obj.clear();
 			Thread.sleep(1000);
 			obj.sendKeys(Value);
-			String message = "Step Number:" + (counter++) + " Able to Set Value in TextBox using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Set Value in TextBox using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
+
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Set Value in TextBox using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Set Value in TextBox using xPath=" + xPath
 					+ "/n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -149,11 +197,17 @@ public class OperationsV1 {
 		try {
 			WebElement obj = IsObjectExists(xPath);
 			obj.sendKeys(Value);
-			String message = "Step Number:" + (counter++) + " Able to Append Value in TexBox using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Append Value in TexBox using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Append Value in TexBox using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Append Value in TexBox using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 
 		}
@@ -164,11 +218,17 @@ public class OperationsV1 {
 		try {
 			WebElement obj = IsObjectExists(xPath);
 			obj.click();
-			String message = "Step Number:" + (counter++) + " Able to Click on Link using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Click on Link using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Click on Link using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Click on Link using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -177,12 +237,18 @@ public class OperationsV1 {
 	public int TableGetRowCount(String xPath) {
 		try {
 			WebElement obj = IsObjectExists(xPath);
-			String message = "Step Number:" + (counter++) + " Able to get Row Count from Table using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Row Count from Table using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return obj.findElements(By.tagName("tr")).size();
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Row Count from Table using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Row Count from Table using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -190,12 +256,18 @@ public class OperationsV1 {
 	public int TableGetColumnCount(String xPath, int RowNumber) {
 		try {
 			WebElement obj = IsObjectExists(xPath);
-			String message = "Step Number:" + (counter++) + " Able to get Column Count from Table using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Column Count from Table using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).size();
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Column Count from Table using xPath="
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Column Count from Table using xPath="
 					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 
@@ -204,13 +276,19 @@ public class OperationsV1 {
 	public String TableGetCellValue(String xPath, int RowNumber, int ColumnNumber) {
 		try {
 			WebElement obj = IsObjectExists(xPath);
-			String message = "Step Number:" + (counter++) + " Able to get Cell Value from Table using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Cell Value from Table using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).get(ColumnNumber)
 					.getText();
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Cell Value from Table using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Cell Value from Table using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -218,12 +296,18 @@ public class OperationsV1 {
 	// ######################Frame#################
 	public WebDriver FrameSwitchByIndex(int Index) {
 		try {
-			String message = "Step Number:" + (counter++) + " Able to Switch Frame by Index using Index=" + Index;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Switch Frame by Index using Index=" + Index;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return driver.switchTo().frame(Index);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Switch Frame by Index using Index=" + Index
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Switch Frame by Index using Index=" + Index
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -231,25 +315,37 @@ public class OperationsV1 {
 	public WebDriver FrameSwitchByXPath(String xPath) {
 		try {
 			WebElement obj = driver.findElement(By.xpath(xPath));
-			String message = "Step Number:" + (counter++) + " Able to get Switch Frame by Xpath using xPath=" + xPath;
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Switch Frame by Xpath using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return driver.switchTo().frame(obj);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Switch Frame by Xpath using xPath=" + xPath
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Switch Frame by Xpath using xPath=" + xPath
 					+ "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
 
 	public WebDriver FrameSwitchByName(String NameOfTheFrame) {
 		try {
-			String message = "Step Number:" + (counter++) + " Able to get Switch Frame by Name using FrameName="
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to get Switch Frame by Name using FrameName="
 					+ NameOfTheFrame;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return driver.switchTo().frame(NameOfTheFrame);
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to get Switch Frame by Name using FrameName="
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to get Switch Frame by Name using FrameName="
 					+ NameOfTheFrame + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -260,12 +356,18 @@ public class OperationsV1 {
 			WebElement obj = IsObjectExists(xPath);
 			Select sel = new Select(obj);
 			sel.selectByVisibleText(Value);
-			String message = "Step Number:" + (counter++) + " Able to Select Visible Text from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Select Visible Text from Drop Down using xPath="
 					+ xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Select Visible Text from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Select Visible Text from Drop Down using xPath="
 					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -275,12 +377,18 @@ public class OperationsV1 {
 			WebElement obj = IsObjectExists(xPath);
 			Select sel = new Select(obj);
 			sel.selectByIndex(Index);
-			String message = "Step Number:" + (counter++) + " Able to Select by Index Text from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++) + " Able to Select by Index Text from Drop Down using xPath="
 					+ xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Select by Index from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++) + " Failed to Select by Index from Drop Down using xPath="
 					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -290,13 +398,19 @@ public class OperationsV1 {
 			WebElement obj = IsObjectExists(xPath);
 			Select sel = new Select(obj);
 			sel.selectByValue(OptionValue);
-			String message = "Step Number:" + (counter++)
+			String message = TextOperations.getDateTime()+"----INFO---- Step Number:" + (counter++)
 					+ " Able to Select by Option Value from Drop Down using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++)
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++)
 					+ " Failed to Select by Option Value from Drop Down using xPath=" + xPath + "\n Exception;"
 					+ ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -305,13 +419,19 @@ public class OperationsV1 {
 		try {
 			WebElement obj = IsObjectExists(xPath);
 			Select sel = new Select(obj);
-			String message = "Step Number:" + (counter++) + " Able to Get Selected Value from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"---INFO--- Step Number:" + (counter++) + " Able to Get Selected Value from Drop Down using xPath="
 					+ xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return sel.getFirstSelectedOption().getText();
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++) + " Failed to Get Selected Value from Drop Down using xPath="
+			String message = TextOperations.getDateTime()+"---ERROR--- Step Number:" + (counter++) + " Failed to Get Selected Value from Drop Down using xPath="
 					+ xPath + "\n Exception;" + ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}
@@ -324,14 +444,20 @@ public class OperationsV1 {
 			for (WebElement ele : sel.getAllSelectedOptions()) {
 				allSelectedValue.add(ele.getText());
 			}
-			String message = "Step Number:" + (counter++)
+			String message = TextOperations.getDateTime()+"---INFO--- Step Number:" + (counter++)
 					+ " Able to Get All Selected Value from Drop Down using xPath=" + xPath;
 			System.out.println(message);
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			return allSelectedValue;
 		} catch (Exception ex) {
-			String message = "Step Number:" + (counter++)
+			String message = TextOperations.getDateTime()+"----ERROR---- Step Number:" + (counter++)
 					+ " Failed to Get All Selected Value from Drop Down using xPath=" + xPath + "\n Exception;"
 					+ ex.getLocalizedMessage();
+			if(isLogEnabled) {
+				TextOperations.AppendTextFile(LogFilePath, message);
+			}
 			throw new WebDriverException(message);
 		}
 	}

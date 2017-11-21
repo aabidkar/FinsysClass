@@ -1,8 +1,7 @@
-package org.ejagruti.reporting;
+package com.Finsys;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -43,23 +42,23 @@ public class HTMLReportGenerator {
 		if(Status.equalsIgnoreCase("pass"))
 		{		logger.log(LogStatus.PASS,StepName,tbl);}
 		else if(Status.equalsIgnoreCase("fail"))
-		{		logger.log(LogStatus.FAIL,StepName, StepDetails);}
+		{		logger.log(LogStatus.FAIL,StepName, tbl);}
 		else if(Status.equalsIgnoreCase("error"))
-		{		logger.log(LogStatus.ERROR,StepName, StepDetails);}
+		{		logger.log(LogStatus.ERROR,StepName, tbl);}
 		else if(Status.equalsIgnoreCase("info"))
-		{		logger.log(LogStatus.INFO,StepName, StepDetails);}
+		{		logger.log(LogStatus.INFO,StepName, tbl);}
 		else
-		{logger.log(LogStatus.INFO,StepName, StepDetails);}
+		{logger.log(LogStatus.INFO,StepName, tbl);}
 	
 		
 	}
 	public static void main(String[] args) throws UnknownHostException {
-	/*	TestSuiteStart("C:\\eJagruti\\Result\\manish.html", "ejagruti");
+		TestSuiteStart("result\\extentreport\\aabidkar.html", "ejagruti");
 		TestCaseStart("this is test name", "this is description");
-		StepDetails("pass", "this is step1", "this is step details1");
-		StepDetails("fail", "this is step2", "this is step details2");
+		StepDetails("pass", "this is step1", "this is step details1","");
+		StepDetails("fail", "this is step2", "this is step details2","");
 		TestCaseEnd();
-		TestSuiteEnd();*/
+		TestSuiteEnd();
 
 	}
 

@@ -1,5 +1,7 @@
 package com.Finsys;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.ejagruti.generic.TextOperations;
@@ -14,7 +16,16 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.NetworkMode;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.NetworkMode;
 import com.thoughtworks.selenium.condition.Text;
 
 public class OperationsV1 {
@@ -27,6 +38,8 @@ public class OperationsV1 {
 	private String LogFolderPath;
 	private String LogFilePath;
 	public static OperationsV1 op = null;
+	static ExtentReports report = null;
+	static ExtentTest logger;
 
 	public OperationsV1() {
 
@@ -490,6 +503,44 @@ public class OperationsV1 {
 		}
 	}
 
+	//######################### Extend Report #################################3
+	/*public static void TestSuiteStart(String ResultHTMLFilePath, String UserName) throws UnknownHostException {
+		report = new ExtentReports(ResultHTMLFilePath, false, NetworkMode.OFFLINE);
+
+		report.addSystemInfo("Host Name", InetAddress.getLocalHost().getHostName()).addSystemInfo("Environment", "QA")
+				.addSystemInfo("User Name", UserName);
+	}
+
+	public static void TestSuiteEnd() {
+		report.flush();
+		report.close();
+	}
+
+	public static void TestCaseStart(String TestName, String Description) {
+		logger = report.startTest(TestName, Description);
+	}
+
+	public static void TestCaseEnd() {
+		report.endTest(logger);
+	}
+
+	public static void StepDetails(String Status, String StepName, String StepDetails, String objectImagePath) {
+		String tbl = StepDetails + "<br>" + logger.addScreenCapture(objectImagePath);
+		if (Status.equalsIgnoreCase("pass")) {
+			logger.log(LogStatus.PASS, StepName, tbl);
+		} else if (Status.equalsIgnoreCase("fail")) {
+			logger.log(LogStatus.FAIL, StepName, StepDetails);
+		} else if (Status.equalsIgnoreCase("error")) {
+			logger.log(LogStatus.ERROR, StepName, StepDetails);
+		} else if (Status.equalsIgnoreCase("info")) {
+			logger.log(LogStatus.INFO, StepName, StepDetails);
+		} else {
+			logger.log(LogStatus.INFO, StepName, StepDetails);
+		}
+	} */
+	
+	//################################# Methods ######################################
+	
 	private void ValidLogin() throws InterruptedException {
 		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
 		// Office User.
@@ -518,7 +569,8 @@ public class OperationsV1 {
 		String val = op.ObjectGetAttributeValue("//div[@id='error']", "innerText");
 		if (val.equalsIgnoreCase("Please Enter Valid Username or Password!!!")) {
 			System.out.println("User is log-in With Invalid Username & Invalid Password. [PASS]");
-			TextOperations.AppendTextFile(LogFilePath, "User is log-in With Invalid Username & Invalid Password. [PASS]");
+			TextOperations.AppendTextFile(LogFilePath,
+					"User is log-in With Invalid Username & Invalid Password. [PASS]");
 		} else {
 			System.out.println("User is able to Log-in successfully. [FAIL]");
 			TextOperations.AppendTextFile(LogFilePath, "User is able to Log-in successfully. [FAIL]");
@@ -560,7 +612,7 @@ public class OperationsV1 {
 		driver.close();
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException,UnknownHostException {
 		op = new OperationsV1(true, "log");
 		op.ValidLogin();
 		// op.InvalidLogin();

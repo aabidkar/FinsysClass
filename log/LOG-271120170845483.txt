@@ -1,0 +1,6 @@
+27-11-2017 08:45:11:915----INFO---- Step Number:1 Able to Launch Browser ch
+27-11-2017 08:45:13:301----INFO---- Step Number:2 Able to Set Value in TextBox using xPath=//input[@placeholder='Username']
+27-11-2017 08:45:14:667----INFO---- Step Number:3 Able to Set Value in TextBox using xPath=//input[@placeholder='Password']
+27-11-2017 08:45:14:883----INFO---- Step Number:4 Able to Click on Link using xPath=//span[.='Login']
+27-11-2017 08:45:15:913----INFO---- Step Number:5 Able to get Attribute Value of Object using xPath=//a[.='LOGOUT']
+User is Log-in Successfully. [PASS]

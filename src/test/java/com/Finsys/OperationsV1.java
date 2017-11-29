@@ -668,22 +668,22 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 	// ################################# Methods
 	// ######################################
-	
-	
+
 	private void BeforeSuite(String suitename, String ownernme) throws UnknownHostException {
-		HTMLReportGenerator.TestSuiteStart(suitename, ownernme);
-		//HTMLReportGenerator.TestSuiteStart(ResultHTMLFilePath, UserName);
+		HTMLReportGenerator.TestSuiteStart(
+				ExtendReportFolerPath + "\\RESULT_" + TextOperations.getDateTime("ddMMYYYYHHmmSSS") + ".html",
+				ownernme);
 	}
-	
+
 	private void BeforeTest(String testcaseid, String testcasetitle) {
 		HTMLReportGenerator.TestCaseStart(testcaseid, testcasetitle);
-		//HTMLReportGenerator.TestCaseStart(TestName, Description);
+		// HTMLReportGenerator.TestCaseStart(TestName, Description);
 	}
-	
+
 	private void AfterTest() {
 		HTMLReportGenerator.TestCaseEnd();
 	}
-	
+
 	private void AfterSuite() {
 		HTMLReportGenerator.TestSuiteEnd();
 	}
@@ -761,15 +761,17 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
 		// op=new OperationsV1(true);
-		op=new OperationsV1("result\\extentreports",true);
+		op = new OperationsV1("result", true);
 		op = new OperationsV1(true, "log");
-		op.BeforeSuite("result\\extentreports\\aabidkar.html", "aabidkar");
+		op.BeforeSuite("regression", "aabidkar");
 		op.BeforeTest("Login_Functionality", "Verify Login Functionality");
 		op.ValidLogin();
-		// op.InvalidLogin();
-		op.CreateCompany();
-		op.tearDown();
 		op.TestCaseEnd();
+		// op.InvalidLogin();
+		op.BeforeTest("Add Company", "Verify Add Company Functionality");
+		op.CreateCompany();
+		op.TestCaseEnd();
+		op.tearDown();
 		op.TestSuiteEnd();
 	}
 

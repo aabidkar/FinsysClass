@@ -630,8 +630,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-				HTMLReportGenerator.StepDetails("FAIl", "Drop Down Select by ALL Selected value",
-						"Vzzil to Select Value from Dropdown by ALL Selected Value" + xPath, "");
+				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by ALL Selected value",
+						"Fail to Select Value from Dropdown by ALL Selected Value" + xPath, "");
 			}
 			throw new WebDriverException(message);
 		}
@@ -671,8 +671,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 	
 	
 	private void BeforeSuite(String suitename, String ownernme) throws UnknownHostException {
-		HTMLReportGenerator.TestSuiteStart("result\\extentreports\\aabidkar.html", "aabidkar");
-		//HTMLReportGenerator.TestCaseStart(TestName, Description);
+		HTMLReportGenerator.TestSuiteStart(suitename, ownernme);
+		//HTMLReportGenerator.TestSuiteStart(ResultHTMLFilePath, UserName);
 	}
 	
 	private void BeforeTest(String testcaseid, String testcasetitle) {
@@ -702,7 +702,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 		} else {
 			System.out.println("User Log-in is Failed. [FAIL]");
 			TextOperations.AppendTextFile(LogFilePath, "User Log-in is Failed. [FAIL]");
-			StepDetails("FAIL", "Invalid Logni", "User log-in is Failed", "");
 		}
 	}
 
@@ -750,11 +749,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 		if (temp.equalsIgnoreCase(company)) {
 			System.out.println(temp + " Company is added [PASS].");
 			TextOperations.AppendTextFile(LogFilePath, temp + " Company is added [PASS].");
-			StepDetails("PASS", "Add Company", "Company Added Sucessfully", "");
 		} else {
 			System.out.println("Invalid Company  " + val + "[FAIL]");
 			TextOperations.AppendTextFile(LogFilePath, "Invalid Company " + val + "[FAIL]");
-			StepDetails("FAIL", "Invlid Company", "Not able to Create company", "");
 		}
 	}
 
@@ -764,11 +761,16 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
 		// op=new OperationsV1(true);
+		op=new OperationsV1("result\\extentreports",true);
 		op = new OperationsV1(true, "log");
+		op.BeforeSuite("result\\extentreports\\aabidkar.html", "aabidkar");
+		op.BeforeTest("Login_Functionality", "Verify Login Functionality");
 		op.ValidLogin();
 		// op.InvalidLogin();
 		op.CreateCompany();
 		op.tearDown();
+		op.TestCaseEnd();
+		op.TestSuiteEnd();
 	}
 
 }

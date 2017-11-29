@@ -49,7 +49,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 	public OperationsV1(String ExtendReportFolerPath, boolean isReportEnable) {
 		this.isReportEnable = isReportEnable;
 		this.ExtendReportFolerPath = ExtendReportFolerPath;
-
 	}
 
 	public void LaunchApplication(String BrowserName, String URL) {
@@ -669,6 +668,25 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 	// ################################# Methods
 	// ######################################
+	
+	
+	private void BeforeSuite(String suitename, String ownernme) throws UnknownHostException {
+		HTMLReportGenerator.TestSuiteStart("result\\extentreports\\aabidkar.html", "aabidkar");
+		//HTMLReportGenerator.TestCaseStart(TestName, Description);
+	}
+	
+	private void BeforeTest(String testcaseid, String testcasetitle) {
+		HTMLReportGenerator.TestCaseStart(testcaseid, testcasetitle);
+		//HTMLReportGenerator.TestCaseStart(TestName, Description);
+	}
+	
+	private void AfterTest() {
+		HTMLReportGenerator.TestCaseEnd();
+	}
+	
+	private void AfterSuite() {
+		HTMLReportGenerator.TestSuiteEnd();
+	}
 
 	private void ValidLogin() throws InterruptedException {
 		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
@@ -745,16 +763,12 @@ public class OperationsV1 extends HTMLReportGenerator {
 	}
 
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
-		TestSuiteStart("result\\extentreports\\aabidkar.html", "ejagruti");
 		// op=new OperationsV1(true);
 		op = new OperationsV1(true, "log");
-		TestCaseStart("this is test name", "this is description");
 		op.ValidLogin();
 		// op.InvalidLogin();
 		op.CreateCompany();
 		op.tearDown();
-		TestCaseEnd();
-		TestSuiteEnd();
 	}
 
 }

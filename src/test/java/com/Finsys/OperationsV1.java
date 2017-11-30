@@ -1,10 +1,16 @@
 package com.Finsys;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
 import org.ejagruti.generic.TextOperations;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -49,6 +55,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 	public OperationsV1(String ExtendReportFolerPath, boolean isReportEnable) {
 		this.isReportEnable = isReportEnable;
 		this.ExtendReportFolerPath = ExtendReportFolerPath;
+		
 	}
 
 	public void LaunchApplication(String BrowserName, String URL) {
@@ -94,6 +101,24 @@ public class OperationsV1 extends HTMLReportGenerator {
 		}
 	}
 
+	
+		public static String TakeScreenShot(String ImagePath) throws IOException{
+			File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			File dest = new File(ImagePath);
+			FileUtils.copyFile(src, dest);
+			String s = dest.toString();
+			return s;
+		}
+	
+		/*public static void main(String[] args) throws InterruptedException, IOException
+		{
+			WebDriver driver=new FirefoxDriver();
+			driver.get("http://localhost:90/finsys");
+			Thread.sleep(10000);
+			TakeScreenShot("d:\\abc.png",driver);
+		}*/
+
+		
 	public WebElement IsObjectExists(String xPath) {
 		WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
 		return obj;
@@ -666,8 +691,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 	 * logger.log(LogStatus.INFO, StepName, StepDetails); } }
 	 */
 
-	// ################################# Methods
-	// ######################################
+	// ################################# Methods // ######################################
 
 	private void BeforeSuite(String suitename, String ownernme) throws UnknownHostException {
 		HTMLReportGenerator.TestSuiteStart(
@@ -698,10 +722,10 @@ public class OperationsV1 extends HTMLReportGenerator {
 		String val = op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText");
 		if (val.equalsIgnoreCase("LOGOUT")) {
 			System.out.println("User is Log-in Successfully. [PASS]");
-			TextOperations.AppendTextFile(LogFilePath, "User is Log-in Successfully. [PASS]");
+			//TextOperations.AppendTextFile(LogFilePath, "User is Log-in Successfully. [PASS]");
 		} else {
 			System.out.println("User Log-in is Failed. [FAIL]");
-			TextOperations.AppendTextFile(LogFilePath, "User Log-in is Failed. [FAIL]");
+			//TextOperations.AppendTextFile(LogFilePath, "User Log-in is Failed. [FAIL]");
 		}
 	}
 
@@ -748,21 +772,21 @@ public class OperationsV1 extends HTMLReportGenerator {
 		String temp = val.replaceAll("\\‌​r|\\n", "");
 		if (temp.equalsIgnoreCase(company)) {
 			System.out.println(temp + " Company is added [PASS].");
-			TextOperations.AppendTextFile(LogFilePath, temp + " Company is added [PASS].");
+			//TextOperations.AppendTextFile(LogFilePath, temp + " Company is added [PASS].");
 		} else {
 			System.out.println("Invalid Company  " + val + "[FAIL]");
-			TextOperations.AppendTextFile(LogFilePath, "Invalid Company " + val + "[FAIL]");
+			//TextOperations.AppendTextFile(LogFilePath, "Invalid Company " + val + "[FAIL]");
 		}
 	}
 
-	private void tearDown() {
+	private void CloseBrowser() {
 		driver.close();
 	}
 
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
 		// op=new OperationsV1(true);
-		op = new OperationsV1("result", true);
-		op = new OperationsV1(true, "log");
+		op = new OperationsV1("result", true); // call to report
+		//op = new OperationsV1(true, "log"); // call to log
 		op.BeforeSuite("regression", "aabidkar");
 		op.BeforeTest("Login_Functionality", "Verify Login Functionality");
 		op.ValidLogin();
@@ -771,7 +795,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		op.BeforeTest("Add Company", "Verify Add Company Functionality");
 		op.CreateCompany();
 		op.TestCaseEnd();
-		op.tearDown();
+		op.CloseBrowser();
 		op.TestSuiteEnd();
 	}
 

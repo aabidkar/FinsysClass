@@ -24,6 +24,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import freemarker.template.utility.HtmlEscape;
+
 public class OperationsV1 extends HTMLReportGenerator {
 
 	public static WebDriver driver = null;
@@ -58,7 +60,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		
 	}
 
-	public void LaunchApplication(String BrowserName, String URL) {
+	public void LaunchApplication(String BrowserName, String URL) throws IOException {
 		try {
 			if (BrowserName.equalsIgnoreCase("ff")) {
 				System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");
@@ -135,8 +137,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 			}
 			if (isReportEnable) {
-				HTMLReportGenerator.StepDetails("PASS", "Objet Get Attribute Value",
-						"Able to get attribute value of Object " + AttributeName, "");
+				String snap=TakeScreenShot(ExtendReportFolerPath+TextOperations.getDateTime("ddMMyyyyHHmmSSS")+".png");
+				HTMLReportGenerator.StepDetails("PASS", "Object Get Attribute Value",
+						"Able to get attribute value of Object " + AttributeName, snap );
 			}
 			return obj.getAttribute(AttributeName);
 		} catch (Exception ex) {
@@ -154,6 +157,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 		}
 	}
+	
 
 	// ###############Button######################
 	public void ButtonClick(String xPath) {
@@ -712,7 +716,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		HTMLReportGenerator.TestSuiteEnd();
 	}
 
-	private void ValidLogin() throws InterruptedException {
+	private void ValidLogin() throws InterruptedException, IOException {
 		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
 		// Office User.
 		op.LaunchApplication("ch", "http://localhost/finsys/login.html"); // for Home User.
@@ -729,7 +733,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		}
 	}
 
-	private void InvalidLogin() throws InterruptedException {
+	private void InvalidLogin() throws InterruptedException, IOException {
 
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
 		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home
@@ -783,7 +787,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		driver.close();
 	}
 
-	public static void main(String[] args) throws InterruptedException, UnknownHostException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// op=new OperationsV1(true);
 		op = new OperationsV1("result", true); // call to report
 		//op = new OperationsV1(true, "log"); // call to log

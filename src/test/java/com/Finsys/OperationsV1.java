@@ -39,10 +39,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 	static ExtentTest logger;
 	private boolean isReportEnable = false;
 	static String ExtendReportFolerPath;
-<<<<<<< HEAD
-=======
-	
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 
 	public OperationsV1() {
 
@@ -60,12 +56,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 	public OperationsV1(String ExtendReportFolerPath, boolean isReportEnable) {
 		this.isReportEnable = isReportEnable;
 		this.ExtendReportFolerPath = ExtendReportFolerPath;
-<<<<<<< HEAD
 
-=======
-			
-		
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 	}
 
 	public void LaunchApplication(String BrowserName, String URL) throws IOException {
@@ -94,11 +85,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("PASS", "LaunchApplication",
 						"Applicatino is Launched Using " + BrowserName, scrn);
 			}
@@ -109,11 +97,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "LaunchApplication",
 						"Applicatino is NOT Launched Using " + BrowserName, scrn);
 			}
@@ -121,7 +106,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 		}
 	}
 
-<<<<<<< HEAD
 	public static String TakeScreenShot() throws IOException {
 		String imgPath = ExtendReportFolerPath + "\\" + TextOperations.getDateTime("ddMMyyyyHHmmSSS") + ".png";
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -131,20 +115,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 		return s;
 	}
 
-=======
-	
-		public static String TakeScreenShot() throws IOException{
-			String ImagePath=ExtendReportFolerPath+"\\"+ TextOperations.getDateTime("ddMMyyyyHHmmSSS")+".png";
-			File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			File dest = new File(ImagePath);
-			FileUtils.copyFile(src, dest);
-			String s = dest.toString();
-			return s;
-			
-			
-		}
-		
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 	public WebElement IsObjectExists(String xPath) {
 		WebElement obj = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
 		return obj;
@@ -161,11 +131,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Object Get Attribute Value",
 						"Able to get attribute value of Object " + AttributeName, scrn);
 			}
@@ -178,11 +146,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "Objet Get Attribute Value",
 						"NOT Able to get attribute value of Object " + AttributeName, scrn);
 			}
@@ -203,11 +168,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Button Click", "Able to Click on Button " + xPath, scrn);
 			}
 		} catch (Exception ex) {
@@ -217,11 +180,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "Button Click", "Fail to Click on Button " + xPath, scrn);
 			}
 			throw new WebDriverException(message);
@@ -242,11 +202,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Button Double Click",
 						"Able to Double Click on Button " + xPath, scrn);
 			}
@@ -258,11 +216,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "Button Double Click",
 						"Fail to Double Click on Button " + xPath, scrn);
 			}
@@ -281,11 +236,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Button Rigt Click", "Able to Right Click on Button " + xPath,
 						scrn);
 			}
@@ -298,11 +251,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Button Click", "Fail to Right Click on Button " + xPath, scrn);
 			}
 			throw new WebDriverException(message);
@@ -323,11 +274,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Text Box Set Value", "Able to Set Value for TextBox " + Value,
 						scrn);
 			}
@@ -340,11 +289,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Text Box Set Value", "Fail to Set Value for TextBox " + Value,
 						scrn);
 			}
@@ -363,11 +310,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Text Box Append Value",
 						"Able to Append Value for TextBox " + Value, scrn);
 			}
@@ -379,11 +324,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Text Box Append Value",
 						"Fail to Append Value for TextBox " + Value, scrn);
 			}
@@ -404,11 +347,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Link Click", "Able to Click on Link " + xPath, scrn);
 			}
 		} catch (Exception ex) {
@@ -418,11 +359,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Link Click", "Fail to Click on Link " + xPath, scrn);
 			}
 			throw new WebDriverException(message);
@@ -440,11 +379,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Table Get Row Count", "Able to get Table Row Count " + xPath,
 						scrn);
 			}
@@ -457,11 +394,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Table Get Row Count", "Fail to get Table Row Count " + xPath,
 						scrn);
 			}
@@ -479,11 +414,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Table Get Column Count",
 						"Able to get Table Column Count " + RowNumber, scrn);
 			}
@@ -496,11 +429,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Table Get Column Count",
 						"Fail to get Table Column Count " + RowNumber, scrn);
 			}
@@ -519,11 +450,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Table Get Cell Value", "Able to get Table Cell Value", scrn);
 			}
 			return obj.findElements(By.tagName("tr")).get(RowNumber).findElements(By.tagName("td")).get(ColumnNumber)
@@ -536,11 +465,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Table Get Cell Value", "Fail to get Table Cell Value", scrn);
 			}
 			throw new WebDriverException(message);
@@ -557,11 +484,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Frame Switch By Index",
 						"Able to Switch Frame by Index" + Index, scrn);
 			}
@@ -574,11 +499,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Frame Switch By Index",
 						"Fail to Switch Frame by Index" + Index, scrn);
 			}
@@ -596,11 +519,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("PASS", "Frame Switch By Xpath",
 						"Able to Switch Frame by Xpath" + xPath, scrn);
 			}
@@ -613,11 +533,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "Frame Switch By Xpath",
 						"Fail to Switch Frame by Xpath" + xPath, scrn);
 			}
@@ -634,11 +551,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("PASS", "Frame Switch By Name",
 						"Able to Switch Frame by Name" + NameOfTheFrame, scrn);
 			}
@@ -651,11 +565,8 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
 				HTMLReportGenerator.StepDetails("FAIL", "Frame Switch By Name",
 						"Fail to Switch Frame by Name" + NameOfTheFrame, scrn);
 			}
@@ -676,11 +587,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by Visible Text",
 						"Able to Select Value from Dropdown by visible Text" + Value, scrn);
 			}
@@ -692,11 +601,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by Visible Text",
 						"Fail to Select Value from Dropdown by visible Text" + Value, scrn);
 			}
@@ -716,11 +623,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by Index",
 						"Able to Select Value from Dropdown by Index" + Index, scrn);
 			}
@@ -732,11 +637,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by Index",
 						"Fail to Select Value from Dropdown by Index" + Index, scrn);
 			}
@@ -756,11 +659,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by Option value",
 						"Able to Select Value from Dropdown by Option value" + OptionValue, scrn);
 			}
@@ -772,11 +673,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by Option value",
 						"Fail to Select Value from Dropdown by Option Value" + OptionValue, scrn);
 			}
@@ -795,11 +694,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by Selected value",
 						"Able to Select Value from Dropdown by Selected Value" + xPath, scrn);
 			}
@@ -812,11 +709,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by Selected value",
 						"Fail to Select Value from Dropdown by Selected Value" + xPath, scrn);
 			}
@@ -839,11 +734,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by ALL Selected value",
 						"Able to Select Value from Dropdown by ALL Selected Value" + xPath, scrn);
 			}
@@ -856,11 +749,9 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-<<<<<<< HEAD
+
 				String scrn = TakeScreenShot();
-=======
-				String scrn=TakeScreenShot();
->>>>>>> 473df1d64773443297835209d0a69abf63a40f50
+
 				HTMLReportGenerator.StepDetails("FAIL", "Drop Down Select by ALL Selected value",
 						"Fail to Select Value from Dropdown by ALL Selected Value" + xPath, scrn);
 			}
@@ -919,23 +810,21 @@ public class OperationsV1 extends HTMLReportGenerator {
 		HTMLReportGenerator.TestSuiteEnd();
 	}
 	/*
-	private void ValidLogin() throws InterruptedException, IOException {
-		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
-		// Office User.
-		//op.LaunchApplication("ch", "http://localhost/finsys/login.html"); // for Home User.
-		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
-		op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
-		op.LinkClick("//span[.='Login']");
-		String val = op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText");
-		if (val.equalsIgnoreCase("LOGOUT")) {
-			System.out.println("User is Log-in Successfully. [PASS]");
-		} else {
-			System.out.println("User Log-in is Failed. [FAIL]");
-		}
-
-	}
-	*/
-
+	 * private void ValidLogin() throws InterruptedException, IOException {
+	 * op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
+	 * // Office User. //op.LaunchApplication("ch",
+	 * "http://localhost/finsys/login.html"); // for Home User.
+	 * op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");
+	 * op.TextBoxSetValue("//input[@placeholder='Password']", "passw0rd");
+	 * op.LinkClick("//span[.='Login']"); String val =
+	 * op.ObjectGetAttributeValue("//a[.='LOGOUT']", "innerText"); if
+	 * (val.equalsIgnoreCase("LOGOUT")) {
+	 * System.out.println("User is Log-in Successfully. [PASS]"); } else {
+	 * System.out.println("User Log-in is Failed. [FAIL]"); }
+	 * 
+	 * }
+	 */
+	/*
 	private void InvalidLogin() throws InterruptedException, IOException {
 
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
@@ -954,39 +843,35 @@ public class OperationsV1 extends HTMLReportGenerator {
 			TextOperations.AppendTextFile(LogFilePath, "User is able to Log-in successfully. [FAIL]");
 		}
 	}
-/*
-	private void CreateCompany() throws InterruptedException, IOException {
-
-		op.LinkClick("//a[@title='Manage Company']");
-		op.FrameSwitchByName("actionid");
-		op.LinkClick("//a[1]/span[@class=\"l-btn-left l-btn-icon-left\"]");
-		String company = "finsys";
-		op.TextBoxSetValue("//input[@name=\"name\"]", company);
-		op.ButtonClick("//select[@id='companytype']");
-		op.DropDownSelectByIndex("//select[@id='companytype']", 2);
-		op.TextBoxSetValue("//input[@name=\"pan\"]", "9876543210");
-		op.TextBoxSetValue("//input[@name=\"email\"]", "amitb@iprogrammer.com");
-		op.TextBoxSetValue("//input[@name=\"tin\"]", "1234567890");
-		op.ButtonClick("//select[@id=\"countryid\"]");
-		op.DropDownSelectByOptionValue("//select[@id=\"countryid\"]", "IN");
-		op.ButtonClick("//select[@id=\"stateidlist\"]");
-		op.DropDownSelectByOptionValue("//select[@id=\"stateidlist\"]", "MAHARASHTRA");
-		op.ButtonClick("//select[@id=\"citylist\"]");
-		op.DropDownSelectByOptionValue("//select[@id=\"citylist\"]", "PUNE");
-		op.LinkClick("//span[@class='l-btn-icon icon-save']");
-		op.LinkClick("//span[@class='l-btn-icon pagination-load']");
-		String val = op.ObjectGetAttributeValue("//tr[@id='datagrid-row-r1-2-0']/td[@field='name']", "innerText");
-		String temp = val.replaceAll("\\‌​r|\\n", "");
-		if (temp.equalsIgnoreCase(company)) {
-			System.out.println(temp + " Company is added [PASS].");
-			// TextOperations.AppendTextFile(LogFilePath, temp + " Company is added
-			// [PASS].");
-		} else {
-			System.out.println("Invalid Company  " + val + "[FAIL]");
-			// TextOperations.AppendTextFile(LogFilePath, "Invalid Company " + val +
-			// "[FAIL]");
-		}
-	}*/
+	/*
+	 * private void CreateCompany() throws InterruptedException, IOException {
+	 * 
+	 * op.LinkClick("//a[@title='Manage Company']");
+	 * op.FrameSwitchByName("actionid");
+	 * op.LinkClick("//a[1]/span[@class=\"l-btn-left l-btn-icon-left\"]"); String
+	 * company = "finsys"; op.TextBoxSetValue("//input[@name=\"name\"]", company);
+	 * op.ButtonClick("//select[@id='companytype']");
+	 * op.DropDownSelectByIndex("//select[@id='companytype']", 2);
+	 * op.TextBoxSetValue("//input[@name=\"pan\"]", "9876543210");
+	 * op.TextBoxSetValue("//input[@name=\"email\"]", "amitb@iprogrammer.com");
+	 * op.TextBoxSetValue("//input[@name=\"tin\"]", "1234567890");
+	 * op.ButtonClick("//select[@id=\"countryid\"]");
+	 * op.DropDownSelectByOptionValue("//select[@id=\"countryid\"]", "IN");
+	 * op.ButtonClick("//select[@id=\"stateidlist\"]");
+	 * op.DropDownSelectByOptionValue("//select[@id=\"stateidlist\"]",
+	 * "MAHARASHTRA"); op.ButtonClick("//select[@id=\"citylist\"]");
+	 * op.DropDownSelectByOptionValue("//select[@id=\"citylist\"]", "PUNE");
+	 * op.LinkClick("//span[@class='l-btn-icon icon-save']");
+	 * op.LinkClick("//span[@class='l-btn-icon pagination-load']"); String val =
+	 * op.ObjectGetAttributeValue(
+	 * "//tr[@id='datagrid-row-r1-2-0']/td[@field='name']", "innerText"); String
+	 * temp = val.replaceAll("\\‌​r|\\n", ""); if (temp.equalsIgnoreCase(company)) {
+	 * System.out.println(temp + " Company is added [PASS]."); //
+	 * TextOperations.AppendTextFile(LogFilePath, temp + " Company is added //
+	 * [PASS]."); } else { System.out.println("Invalid Company  " + val + "[FAIL]");
+	 * // TextOperations.AppendTextFile(LogFilePath, "Invalid Company " + val + //
+	 * "[FAIL]"); } }
+	 */
 
 	private void CloseBrowser() {
 		driver.close();
@@ -999,7 +884,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 		op.BeforeTest("Login_Functionality", "Verify Login Functionality");
 		//op.ValidLogin();
 		op.TestCaseEnd();
-		// op.InvalidLogin();
+		//op.InvalidLogin();
 		op.BeforeTest("Add Company", "Verify Add Company Functionality");
 		//op.CreateCompany();
 		op.TestCaseEnd();

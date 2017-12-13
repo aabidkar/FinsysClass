@@ -1,10 +1,10 @@
 package ez.testcases.finsys;
 
 import java.io.IOException;
-
 import com.Finsys.OperationsV1;
 
-public class CreateCompany_03 extends OperationsV1{
+public class CreateCompany_03 extends OperationsV1 {
+	
 	public void CreateCompany() throws InterruptedException, IOException {
 
 		op.LinkClick("//a[@title='Manage Company']");

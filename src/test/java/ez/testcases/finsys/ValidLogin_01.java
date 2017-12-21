@@ -7,9 +7,15 @@ import org.testng.annotations.Test;
 import com.Finsys.OperationsV1;
 
 public class ValidLogin_01 extends OperationsV1 {
+<<<<<<< HEAD
 	@Test
 	
 	
+=======
+	
+	
+	@Test
+>>>>>>> edb7a53aeb96957b91fac04155131b68d98e0944
 	public void ValidLogin() throws InterruptedException, IOException {
 		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
 		// Office User.

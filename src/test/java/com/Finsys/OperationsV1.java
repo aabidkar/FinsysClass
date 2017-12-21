@@ -881,8 +881,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 		op.TestCaseEnd();
 		op.CloseBrowser();
 		op.TestSuiteEnd();
-		
-		
 	}
 	
 	

@@ -2,10 +2,14 @@ package ez.testcases.finsys;
 
 import java.io.IOException;
 
+import org.testng.annotations.Test;
+
 import com.Finsys.OperationsV1;
 
 public class ValidLogin_01 extends OperationsV1 {
-
+	
+	
+	@Test
 	public void ValidLogin() throws InterruptedException, IOException {
 		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
 		// Office User.

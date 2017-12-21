@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test name="Test">
   <classes>
-  <class name="ez.testcases.finsys.ValidLogin_01" />
+  <class name="com.Finsys.OperationsV1.java" />
   
   </classes>
   </test> <!-- Test -->

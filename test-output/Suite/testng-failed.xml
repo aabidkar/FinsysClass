@@ -8,6 +8,11 @@
           <include name="ValidLogin"/>
         </methods>
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
+      <class name="ez.testcases.finsys.CreateCompany_03">
+        <methods>
+          <include name="CreateCompany"/>
+        </methods>
+      </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

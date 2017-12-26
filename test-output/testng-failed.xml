@@ -3,11 +3,6 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="ez.testcases.finsys.ValidLogin_01">
-        <methods>
-          <include name="ValidLogin"/>
-        </methods>
-      </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
       <class name="ez.testcases.finsys.CreateCompany_03">
         <methods>
           <include name="CreateCompany"/>

@@ -9,7 +9,8 @@ import com.Finsys.OperationsV1;
 public class CreateCompany_03 extends OperationsV1 {
 	@Test
 	public void CreateCompany() throws InterruptedException, IOException {
-
+		OperationsV1 op = new OperationsV1();
+		//op.BeforeTest("Add Company", "Verify Add Company Functionality");
 		op.LinkClick("//a[@title='Manage Company']");
 		op.FrameSwitchByName("actionid");
 		op.LinkClick("//a[1]/span[@class=\"l-btn-left l-btn-icon-left\"]");
@@ -35,6 +36,8 @@ public class CreateCompany_03 extends OperationsV1 {
 		} else {
 			System.out.println("Invalid Company  " + val + "[FAIL]");
 		}
+		//op.TestCaseEnd();
+		//op.TestSuiteEnd();
 	}
 
 }

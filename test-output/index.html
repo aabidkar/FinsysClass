@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -100,6 +100,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
                     <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="ez.testcases.finsys.CreateCompany_03" hash-for-method="CreateCompany">CreateCompany</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img width="3%" src="failed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="ez.testcases.finsys.ValidLogin_01" hash-for-method="ValidLogin">ValidLogin</a> <!-- method navigator-link -->
@@ -129,11 +134,26 @@
                   </a> <!-- ValidLogin -->
                   <span class="method-name">ValidLogin</span>
                   <div class="stack-trace">java.lang.NullPointerException
-<<<<<<< HEAD
-	at ez.testcases.finsys.ValidLogin_01.ValidLogin(ValidLogin_01.java:16)
-=======
-	at ez.testcases.finsys.ValidLogin_01.ValidLogin(ValidLogin_01.java:14)
->>>>>>> edb7a53aeb96957b91fac04155131b68d98e0944
+	at ez.testcases.finsys.ValidLogin_01.ValidLogin(ValidLogin_01.java:15)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">ez.testcases.finsys.CreateCompany_03</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CreateCompany">
+                  </a> <!-- CreateCompany -->
+                  <span class="method-name">CreateCompany</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ez.testcases.finsys.CreateCompany_03.CreateCompany(CreateCompany_03.java:13)
 ... Removed 25 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -193,24 +213,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'ValidLogin')
 data.setCell(0, 2, 'ez.testcases.finsys.ValidLogin_01')
-<<<<<<< HEAD
-data.setCell(0, 3, 21);
-=======
-data.setCell(0, 3, 12);
->>>>>>> edb7a53aeb96957b91fac04155131b68d98e0944
+data.setCell(0, 3, 20);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'CreateCompany')
+data.setCell(1, 2, 'ez.testcases.finsys.CreateCompany_03')
+data.setCell(1, 3, 0);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-<<<<<<< HEAD
-              <span class="suite-total-time">Total running time: 21 ms</span>
-=======
-              <span class="suite-total-time">Total running time: 12 ms</span>
->>>>>>> edb7a53aeb96957b91fac04155131b68d98e0944
+              <span class="suite-total-time">Total running time: 20 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -242,6 +258,15 @@ return data;
                 </img>
                 <span class="method-name">ValidLogin</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ez.testcases.finsys.CreateCompany_03</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CreateCompany</span>
+                <span class="method-start">30 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -99,7 +99,6 @@ public class OperationsV1 extends HTMLReportGenerator {
 			if (isReportEnable) {
 
 				String scrn = TakeScreenShot();
-
 				HTMLReportGenerator.StepDetails("FAIL", "LaunchApplication",
 						"Applicatino is NOT Launched Using " + BrowserName, scrn);
 			}
@@ -132,9 +131,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 
 			}
 			if (isReportEnable) {
-
 				String scrn = TakeScreenShot();
-
 				HTMLReportGenerator.StepDetails("PASS", "Object Get Attribute Value",
 						"Able to get attribute value of Object " + AttributeName, scrn);
 			}
@@ -735,9 +732,7 @@ public class OperationsV1 extends HTMLReportGenerator {
 				TextOperations.AppendTextFile(LogFilePath, message);
 			}
 			if (isReportEnable) {
-
 				String scrn = TakeScreenShot();
-
 				HTMLReportGenerator.StepDetails("PASS", "Drop Down Select by ALL Selected value",
 						"Able to Select Value from Dropdown by ALL Selected Value" + xPath, scrn);
 			}

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="2" ignored="0" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="60" started-at="2017-12-26T06:46:06Z" finished-at="2017-12-26T06:46:06Z">
+  <suite name="Suite" duration-ms="125" started-at="2017-12-26T15:11:20Z" finished-at="2017-12-26T15:11:20Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="60" started-at="2017-12-26T06:46:06Z" finished-at="2017-12-26T06:46:06Z">
+    <test name="Test" duration-ms="125" started-at="2017-12-26T15:11:20Z" finished-at="2017-12-26T15:11:20Z">
       <class name="ez.testcases.finsys.ValidLogin_01">
-        <test-method status="FAIL" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@27efef64]" name="ValidLogin" duration-ms="20" started-at="2017-12-26T12:16:06Z" finished-at="2017-12-26T12:16:06Z">
+        <test-method status="FAIL" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@27efef64]" name="ValidLogin" duration-ms="47" started-at="2017-12-26T20:41:20Z" finished-at="2017-12-26T20:41:20Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -45,7 +45,7 @@
         </test-method> <!-- ValidLogin -->
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
       <class name="ez.testcases.finsys.CreateCompany_03">
-        <test-method status="FAIL" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@3e6fa38a]" name="CreateCompany" duration-ms="0" started-at="2017-12-26T12:16:06Z" finished-at="2017-12-26T12:16:06Z">
+        <test-method status="FAIL" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@3e6fa38a]" name="CreateCompany" duration-ms="15" started-at="2017-12-26T20:41:20Z" finished-at="2017-12-26T20:41:20Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException

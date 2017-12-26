@@ -3,10 +3,12 @@ package ez.testcases.finsys;
 import java.io.IOException;
 
 import org.ejagruti.generic.TextOperations;
+import org.testng.annotations.Test;
 
 import com.Finsys.OperationsV1;
 
 public class InvalidLogin_02 extends OperationsV1 {
+	@Test
 	public void InvalidLogin() throws InterruptedException, IOException {
 
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.

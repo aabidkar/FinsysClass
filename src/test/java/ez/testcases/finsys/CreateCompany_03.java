@@ -31,6 +31,7 @@ public class CreateCompany_03 extends OperationsV1 {
 		op.LinkClick("//span[@class='l-btn-icon pagination-load']");
 		String val = op.ObjectGetAttributeValue("//tr[@id='datagrid-row-r1-2-0']/td[@field='name']", "innerText");
 		String temp = val.replaceAll("\\‌​r|\\n", "");
+		System.out.println(temp);
 		if (temp.equalsIgnoreCase(company)) {
 			System.out.println(temp + " Company is added [PASS].");
 		} else {

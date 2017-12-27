@@ -4,7 +4,7 @@
 	<test name="Test">
 		<classes>
 			<class name="ez.testcases.finsys.ValidLogin_01" />
-			<class name="ez.testcases.finsys.CreateCompany_03" />
+		
 		</classes>
 </test>
  </suite>

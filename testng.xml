@@ -3,8 +3,9 @@
 <suite name="Suite">
 	<test name="Test">
 		<classes>
+			<class name="ez.testcases.finsys.BaseFeatures" />
 			<class name="ez.testcases.finsys.ValidLogin_01" />
 		
 		</classes>
-</test>
- </suite>
+	</test>
+</suite>

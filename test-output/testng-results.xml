@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
@@ -8,10 +9,36 @@
     <test name="Test" duration-ms="8349" started-at="2017-12-26T15:18:22Z" finished-at="2017-12-26T15:18:30Z">
       <class name="ez.testcases.finsys.ValidLogin_01">
         <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@59f99ea]" name="ValidLogin" duration-ms="8325" started-at="2017-12-26T20:48:22Z" finished-at="2017-12-26T20:48:30Z">
+=======
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="16190" started-at="2018-01-08T09:07:54Z" finished-at="2018-01-08T09:08:10Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="16190" started-at="2018-01-08T09:07:54Z" finished-at="2018-01-08T09:08:10Z">
+      <class name="ez.testcases.finsys.ValidLogin_01">
+        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@2b98378d]" name="ValidLogin" duration-ms="8569" started-at="2018-01-08T14:37:54Z" finished-at="2018-01-08T14:38:02Z">
+>>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidLogin -->
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
+<<<<<<< HEAD
+=======
+      <class name="ez.testcases.finsys.CreateCompany_03">
+        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@475530b9]" name="CreateCompany" duration-ms="7582" started-at="2018-01-08T14:38:02Z" finished-at="2018-01-08T14:38:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateCompany -->
+      </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
+      <class name="ez.testcases.finsys.BaseFeatures">
+        <test-method status="PASS" signature="BeforeFeat()[pri:0, instance:ez.testcases.finsys.BaseFeatures@18be83e4]" name="BeforeFeat" duration-ms="11" started-at="2018-01-08T14:37:54Z" finished-at="2018-01-08T14:37:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeFeat -->
+      </class> <!-- ez.testcases.finsys.BaseFeatures -->
+>>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

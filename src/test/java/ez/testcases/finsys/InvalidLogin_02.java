@@ -10,7 +10,7 @@ import com.Finsys.OperationsV1;
 public class InvalidLogin_02 extends OperationsV1 {
 	@Test
 	public void InvalidLogin() throws InterruptedException, IOException {
-
+		OperationsV1 op=new OperationsV1();
 		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for Office User.
 		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); //for Home
 		// User.

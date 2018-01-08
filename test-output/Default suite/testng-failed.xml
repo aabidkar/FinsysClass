@@ -7,11 +7,7 @@
         <methods>
           <include name="countiFrame"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
-=======
       </class> <!-- com.Finsys.Testtest -->
->>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="22635" started-at="2017-12-27T04:13:49Z" finished-at="2017-12-27T04:14:11Z">
+  <suite name="Suite" duration-ms="36929" started-at="2018-01-08T04:11:55Z" finished-at="2018-01-08T04:12:32Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="22635" started-at="2017-12-27T04:13:49Z" finished-at="2017-12-27T04:14:11Z">
+    <test name="Test" duration-ms="36929" started-at="2018-01-08T04:11:55Z" finished-at="2018-01-08T04:12:32Z">
       <class name="ez.testcases.finsys.ValidLogin_01">
-        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@2b98378d]" name="ValidLogin" duration-ms="13193" started-at="2017-12-27T09:43:49Z" finished-at="2017-12-27T09:44:02Z">
+        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@2b98378d]" name="ValidLogin" duration-ms="23694" started-at="2018-01-08T09:41:55Z" finished-at="2018-01-08T09:42:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidLogin -->
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
       <class name="ez.testcases.finsys.CreateCompany_03">
-        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@475530b9]" name="CreateCompany" duration-ms="9320" started-at="2017-12-27T09:44:02Z" finished-at="2017-12-27T09:44:11Z">
+        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@475530b9]" name="CreateCompany" duration-ms="13169" started-at="2018-01-08T09:42:19Z" finished-at="2018-01-08T09:42:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateCompany -->
       </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
       <class name="ez.testcases.finsys.BaseFeatures">
-        <test-method status="PASS" signature="BeforeFeat()[pri:0, instance:ez.testcases.finsys.BaseFeatures@18be83e4]" name="BeforeFeat" duration-ms="35" started-at="2017-12-27T09:43:49Z" finished-at="2017-12-27T09:43:49Z">
+        <test-method status="PASS" signature="BeforeFeat()[pri:0, instance:ez.testcases.finsys.BaseFeatures@18be83e4]" name="BeforeFeat" duration-ms="31" started-at="2018-01-08T09:41:55Z" finished-at="2018-01-08T09:41:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeFeat -->

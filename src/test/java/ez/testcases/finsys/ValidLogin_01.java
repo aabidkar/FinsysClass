@@ -12,9 +12,9 @@ public class ValidLogin_01 extends OperationsV1 {
 	public void ValidLogin() throws InterruptedException, IOException {
 		OperationsV1 op = new OperationsV1();
 		//op.BeforeTest("Login_Functionality", "Verify Login Functionality");
-		// op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
+		op.LaunchApplication("ch", "http://localhost:90/finsys/login.html"); // for
 		// Office User.
-		op.LaunchApplication("ch", "http://localhost/finsys/login.html");
+		//op.LaunchApplication("ch", "http://localhost/finsys/login.html");
 		// op.LaunchApplication("ch", "http://localhost/finsys/login.html"); // for Home
 		// User.
 		op.TextBoxSetValue("//input[@placeholder='Username']", "dummyfm");

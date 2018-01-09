@@ -6,7 +6,25 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.Authenticator;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
 import org.apache.commons.io.FileUtils;
 import org.ejagruti.generic.TextOperations;
 import org.openqa.selenium.By;
@@ -850,21 +868,126 @@ public class OperationsV1 {
 	public void CloseBrowser() {
 		driver.close();
 	}
-	/*
+	
+	public static void SendReportThroughMail(final String FromEmailId, String ToEmailId, String LocalHost,
+			String Port, final String FromEmailPassword, String AttachemntDetails,String Protocol) { 
+		
+	
+		// Recipient's email ID needs to be mentioned.
+	      String to = ToEmailId;
+
+	      // Sender's email ID needs to be mentioned
+	      String from =FromEmailId;
+
+	      // Assuming you are sending email from localhost
+	      String host = LocalHost;
+
+	      // Get system properties
+	      //Properties properties = System.getProperties();
+	      Properties properties = new Properties();
+	      properties.put("mail.transport.protocol", Protocol);
+	      properties.put("mail.smtp.host", host); // smtp.gmail.com?
+	      properties.put("mail.smtp.port", Port);
+	      //mail.smtp.starttls.enable="true"
+	      //mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory"
+
+	      // Setup mail server  - Authentication
+	      properties.setProperty("mail.smtp.host", host);
+	      properties.put("mail.smtp.auth", "true");
+	      properties.put("mail.smtp.starttls.enable","true");
+	      properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+	      Authenticator authenticator = new Authenticator() {
+	          protected PasswordAuthentication getPasswordAuthentication() {
+	              return new PasswordAuthentication(FromEmailId,FromEmailPassword);
+	          }
+	      };
+
+	      // Get the default Session object.
+	      Session session = Session.getDefaultInstance(properties, authenticator);
+	      
+	     
+	      
+	      try {
+	          // Create a default MimeMessage object.
+	          MimeMessage message = new MimeMessage(session);
+
+	          // Set From: header field of the header.
+	          message.setFrom(new InternetAddress(from));
+
+	          // Set To: header field of the header.
+	          message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+
+	          // Set Subject: header field
+	          message.setSubject("This is the Subject Line!");
+
+	          // Create the message part 
+	          BodyPart messageBodyPart = new MimeBodyPart();
+
+	          // Fill the message
+	          messageBodyPart.setText("This is message body");
+	          
+	          // Create a multipar message
+	          Multipart multipart = new MimeMultipart();
+
+	          // Set text message part
+	          multipart.addBodyPart(messageBodyPart);
+
+	          // Part two is attachment
+	          messageBodyPart = new MimeBodyPart();
+	          String filename = AttachemntDetails;
+	          DataSource source = new FileDataSource(filename);
+	          messageBodyPart.setDataHandler(new DataHandler(source));
+	          messageBodyPart.setFileName(filename);
+	          multipart.addBodyPart(messageBodyPart);
+
+	          // Send the complete message parts
+	          message.setContent(multipart );
+
+	          // Send message
+	          Transport.send(message);
+	          System.out.println("Sent message successfully....");
+	       }catch (MessagingException mex) {
+	          mex.printStackTrace();
+	       }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
 	public static void main(String[] args) throws InterruptedException, IOException {
 		op = new OperationsV1(path + "\\result", true); // call to report
 		// op = new OperationsV1(true, path+"\\log"); // call to log
-		op.BeforeSuite("regression", "aabidkar");
-		op.BeforeTest("Login_Functionality", "Verify Login Functionality");
+		//op.BeforeSuite("regression", "aabidkar");
+		//op.BeforeTest("Login_Functionality", "Verify Login Functionality");
 		// op.ValidLogin();
-		op.TestCaseEnd();
+		//op.TestCaseEnd();
 		// op.InvalidLogin();
-		op.BeforeTest("Add Company", "Verify Add Company Functionality");
+		//op.BeforeTest("Add Company", "Verify Add Company Functionality");
 		// op.CreateCompany();
-		op.TestCaseEnd();
-		op.CloseBrowser();
-		op.TestSuiteEnd();
+		//op.TestCaseEnd();
+		//op.CloseBrowser();
+		//op.TestSuiteEnd();
 	}
-	*/
-
+	
+*/
 }

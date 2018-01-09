@@ -71,5 +71,25 @@
 	<systemPath>${basedir}/ExtJars/GFL.jar</systemPath>
 </dependency>
 
+<dependency>
+	<groupId>com.finsys.tutorials</groupId>
+	<artifactId>externalActivation-jars</artifactId>
+	<version>1.0</version>
+	<scope>system</scope>
+	<systemPath>${basedir}/ExtJars/activation.jar</systemPath>
+</dependency>
+<dependency>
+	<groupId>com.finsys.tutorials</groupId>
+	<artifactId>externalmail-jars</artifactId>
+	<version>1.0</version>
+	<scope>system</scope>
+	<systemPath>${basedir}/ExtJars/mail.jar</systemPath>
+</dependency>
+
+
+
+
+
+
 	</dependencies>
 </project>

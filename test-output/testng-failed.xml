@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
     <classes>
-      <class name="com.Finsys.Testtest">
+      <class name="ez.testcases.finsys.ValidLogin_01">
         <methods>
-          <include name="countiFrame"/>
+          <include name="ValidLogin"/>
         </methods>
-<<<<<<< HEAD
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
-=======
-      </class> <!-- com.Finsys.Testtest -->
->>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
+      <class name="ez.testcases.finsys.CreateCompany_03">
+        <methods>
+          <include name="CreateCompany"/>
+        </methods>
+      </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,44 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="8349" started-at="2017-12-26T15:18:22Z" finished-at="2017-12-26T15:18:30Z">
+  <suite name="Suite" duration-ms="21680" started-at="2018-01-09T04:17:28Z" finished-at="2018-01-09T04:17:50Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="8349" started-at="2017-12-26T15:18:22Z" finished-at="2017-12-26T15:18:30Z">
+    <test name="Test" duration-ms="21680" started-at="2018-01-09T04:17:28Z" finished-at="2018-01-09T04:17:50Z">
       <class name="ez.testcases.finsys.ValidLogin_01">
-        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@59f99ea]" name="ValidLogin" duration-ms="8325" started-at="2017-12-26T20:48:22Z" finished-at="2017-12-26T20:48:30Z">
-=======
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
-  <reporter-output>
-  </reporter-output>
-  <suite name="Suite" duration-ms="16190" started-at="2018-01-08T09:07:54Z" finished-at="2018-01-08T09:08:10Z">
-    <groups>
-    </groups>
-    <test name="Test" duration-ms="16190" started-at="2018-01-08T09:07:54Z" finished-at="2018-01-08T09:08:10Z">
-      <class name="ez.testcases.finsys.ValidLogin_01">
-        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@2b98378d]" name="ValidLogin" duration-ms="8569" started-at="2018-01-08T14:37:54Z" finished-at="2018-01-08T14:38:02Z">
->>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
+        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@4883b407]" name="ValidLogin" duration-ms="12678" started-at="2018-01-09T09:47:28Z" finished-at="2018-01-09T09:47:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidLogin -->
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
-<<<<<<< HEAD
-=======
       <class name="ez.testcases.finsys.CreateCompany_03">
-        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@475530b9]" name="CreateCompany" duration-ms="7582" started-at="2018-01-08T14:38:02Z" finished-at="2018-01-08T14:38:10Z">
+        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@7d9d1a19]" name="CreateCompany" duration-ms="8963" started-at="2018-01-09T09:47:41Z" finished-at="2018-01-09T09:47:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateCompany -->
       </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
-      <class name="ez.testcases.finsys.BaseFeatures">
-        <test-method status="PASS" signature="BeforeFeat()[pri:0, instance:ez.testcases.finsys.BaseFeatures@18be83e4]" name="BeforeFeat" duration-ms="11" started-at="2018-01-08T14:37:54Z" finished-at="2018-01-08T14:37:54Z">
+      <class name="ez.testcases.finsys.SendMail">
+        <test-method status="FAIL" signature="sendEmail()[pri:0, instance:ez.testcases.finsys.SendMail@42e26948]" name="sendEmail" is-config="true" duration-ms="144" started-at="2018-01-09T09:47:50Z" finished-at="2018-01-09T09:47:50Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at javax.mail.internet.MimeUtility.getEncoding(MimeUtility.java:226)
+	at javax.mail.internet.MimeUtility.getEncoding(MimeUtility.java:299)
+	at javax.mail.internet.MimeBodyPart.updateHeaders(MimeBodyPart.java:1375)
+	at javax.mail.internet.MimeBodyPart.updateHeaders(MimeBodyPart.java:1021)
+	at javax.mail.internet.MimeMultipart.updateHeaders(MimeMultipart.java:419)
+	at javax.mail.internet.MimeBodyPart.updateHeaders(MimeBodyPart.java:1354)
+	at javax.mail.internet.MimeMessage.updateHeaders(MimeMessage.java:2107)
+	at javax.mail.internet.MimeMessage.saveChanges(MimeMessage.java:2075)
+	at javax.mail.Transport.send(Transport.java:123)
+	at com.Finsys.OperationsV1.SendReportThroughMail(OperationsV1.java:947)
+	at ez.testcases.finsys.SendMail.sendEmail(SendMail.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:350)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BeforeFeat -->
-      </class> <!-- ez.testcases.finsys.BaseFeatures -->
->>>>>>> 9f0a8ac74909c274b8cf972fe0825e876bdb5091
+        </test-method> <!-- sendEmail -->
+      </class> <!-- ez.testcases.finsys.SendMail -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

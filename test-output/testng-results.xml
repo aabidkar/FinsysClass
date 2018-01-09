@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="21680" started-at="2018-01-09T04:17:28Z" finished-at="2018-01-09T04:17:50Z">
+  <suite name="Suite" duration-ms="20182" started-at="2018-01-09T04:26:03Z" finished-at="2018-01-09T04:26:23Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="21680" started-at="2018-01-09T04:17:28Z" finished-at="2018-01-09T04:17:50Z">
+    <test name="Test" duration-ms="20182" started-at="2018-01-09T04:26:03Z" finished-at="2018-01-09T04:26:23Z">
       <class name="ez.testcases.finsys.ValidLogin_01">
-        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@4883b407]" name="ValidLogin" duration-ms="12678" started-at="2018-01-09T09:47:28Z" finished-at="2018-01-09T09:47:41Z">
+        <test-method status="PASS" signature="ValidLogin()[pri:0, instance:ez.testcases.finsys.ValidLogin_01@4883b407]" name="ValidLogin" duration-ms="11519" started-at="2018-01-09T09:56:03Z" finished-at="2018-01-09T09:56:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidLogin -->
       </class> <!-- ez.testcases.finsys.ValidLogin_01 -->
       <class name="ez.testcases.finsys.CreateCompany_03">
-        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@7d9d1a19]" name="CreateCompany" duration-ms="8963" started-at="2018-01-09T09:47:41Z" finished-at="2018-01-09T09:47:50Z">
+        <test-method status="PASS" signature="CreateCompany()[pri:0, instance:ez.testcases.finsys.CreateCompany_03@7d9d1a19]" name="CreateCompany" duration-ms="8624" started-at="2018-01-09T09:56:15Z" finished-at="2018-01-09T09:56:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateCompany -->
       </class> <!-- ez.testcases.finsys.CreateCompany_03 -->
       <class name="ez.testcases.finsys.SendMail">
-        <test-method status="FAIL" signature="sendEmail()[pri:0, instance:ez.testcases.finsys.SendMail@42e26948]" name="sendEmail" is-config="true" duration-ms="144" started-at="2018-01-09T09:47:50Z" finished-at="2018-01-09T09:47:50Z">
+        <test-method status="FAIL" signature="sendEmail()[pri:0, instance:ez.testcases.finsys.SendMail@42e26948]" name="sendEmail" is-config="true" duration-ms="99" started-at="2018-01-09T09:56:23Z" finished-at="2018-01-09T09:56:24Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -33,7 +33,7 @@
 	at javax.mail.internet.MimeMessage.saveChanges(MimeMessage.java:2075)
 	at javax.mail.Transport.send(Transport.java:123)
 	at com.Finsys.OperationsV1.SendReportThroughMail(OperationsV1.java:947)
-	at ez.testcases.finsys.SendMail.sendEmail(SendMail.java:29)
+	at ez.testcases.finsys.SendMail.sendEmail(SendMail.java:9)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

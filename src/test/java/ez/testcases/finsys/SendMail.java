@@ -6,7 +6,7 @@ public class SendMail extends OperationsV1 {
 
 	@org.testng.annotations.AfterSuite
 	public void sendEmail() {
-		SendReportThroughMail("ejagrutiauto@gmail.com", "vivekphoenix@gmail.com", "smtp.gmail.com", "587", "ejagruti",
+		SendReportThroughMail("ejagrutiauto@gmail.com", "vivekphoenix@gmail.com", "smtp.gmail.com", "465", "ejagruti",
 				path + "\\reports\\newreportwithmail.html", "smtp");
 
 	}
